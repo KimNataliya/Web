@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css_additional %}
+<link href=" {% static 'css/login.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block content_one %}
+<div class="login">
+    <div class="box">
+        <form method="POST" action="">
+            {% csrf_token %}
+		    <span class="text-center">Авторизация</span>
+            <div class="input-container">
+		        <input type="input" name="username" required=""/>
+		        <label>Имя пользователя</label>
+	        </div>
+	        <div class="input-container">
+		        <input type="password" name="password" required=""/>
+		        <label>Пароль</label>
+	        </div>
+            <div class="btn-center"><input class="btn" type="submit" value="Войти"></div>
+        </form>
+        {% for message in messages %}
+            <p> {{message}}</p>
+        {% endfor %}
+        <div class="register-text"> У вас нет учетной записи? <a href="{% url 'register' %}">Регистрация</a> </div>
+    </div>
+</div>
+{% endblock %}

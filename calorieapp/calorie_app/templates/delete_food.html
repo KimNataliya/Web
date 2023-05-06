@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/delete_food.css' %} "rel="stylesheet">
+{% endblock %}
+
+
+{% block content_one %}
+<div class="container">
+<div class="block-text">
+<p>Вы уверены, что хотите удалить "{{ food }}"</p>
+<form method="POST" action="{% url 'delete_food' food.id %}">
+	{% csrf_token %}
+	<a href="{% url 'add_food' %}">Отменить</a>
+	<div class="btn"><input class="btn-style" type="submit" name="Отменить"></div>
+</form>
+</div>
+</div>
+{% endblock %}

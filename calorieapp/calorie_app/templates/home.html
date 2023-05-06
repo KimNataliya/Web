@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/home.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block header%}
+<header class="header">
+        <div class="container">
+            <div class="header-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li class="left-item"><a href="{% url 'home' %}">Главная</a></li>
+                        <li class="left-item"><a href="{% url 'profile' %}">Профиль</a></li>
+                        <li class="right-item"><a href="{% url 'add_food' %}">Добавить еду</a></li>
+                        <li class="right-item"><a href="{% url 'select_food' %}">Выбрать еду</a></li>
+                        {% endwith %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="nav-logo">
+           <a href="{% url 'index' %}" class="nl">Счетчик калорий</a>
+        </div>
+</header>
+{% endblock %}
+
+{% block content_one %}
+<main>
+    <div id="username" class="hi"> Привет, {{ request.user }}! </div>
+    <div class="post-wrap">
+        <div class="post-item">
+            <div class="item-content">
+                <div class="item-body">
+                    <div class="item-icon">
+                        <img src="{% static 'img/healthy-food.png' %}">
+                        <h3>Съедено сегодня</h3>
+                    </div>
+                    <div class="content-one">
+                        <p>{{ total_calorie }} ккал</p>
+                        <p>Белки: {{ total_proteins }}г.</p>
+                        <p>Жиры: {{ total_fats }}г.</p>
+                        <p>Углеводы: {{ total_carbs }}г.</p>
+                    </div>
+
+                </div>
+                <div class="item-footer"><a href="{% url 'select_food' %}" class="link"><span>Добавить</span></a></div>
+            </div>
+        </div>
+        <div class="post-item">
+            <div class="item-content">
+                <div class="item-body">
+                    <div class="item-icon">
+                        <img src="{% static 'img/goal.png' %}">
+                        <h3>Цель на сегодня</h3>
+                    </div>
+                    <div class="content-one">
+                        <p>{{ calorie_goal }} ккал</p>
+                        <p>Белки: {{ proteins_goal }}г.</p>
+                        <p>Жиры: {{ fats_goal }}г.</p>
+                        <p>Углеводы:0 {{ carbs_goal }}г.</p>
+                    </div>
+                </div>
+                <div class="item-footer"><a href="{% url 'profile' %}" class="link"><span>Профиль</span></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-txt">
+        <div class="card-status-txt">
+            <p>
+            {% if calorie_goal_status > 0 %}
+                Тебе нужно  {{ calorie_goal_status }} калорий для достижения цели!
+            {% elif calorie_goal == 0 %}
+                <a href="{% url 'profile' %}"> Введите свою цель по потреблению калорий на день. </a>
+            {% else %}
+                Вы превзошли свою цель на {{ over_calorie }} калориев.
+            {% endif %} </p>
+        </div>
+    </div>
+
+    <h1 class="table-txt"> Вся еда за сегодня </h1>
+        <div class="table-container">
+            <table>
+            <thead>
+                <tr>
+                    <th>Еда</th>
+                    <th>Грамм</th>
+                    <th>Белки</th>
+                    <th>Жиры</th>
+                    <th>Углеводы</th>
+                    <th>Калорий</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for food in food_selected_today %}
+            <tr>
+                <td> {{ food.food.name }}</td>
+                <td> {{ food.amount }}</td>
+                <td> {{ food.proteins_amount }}</td>
+                <td> {{ food.fats_amount }}</td>
+                <td> {{ food.carbs_amount }}</td>
+                <td> {{ food.calorie_amount }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="foot">
+    <div class="foot-txt">Наши социальные сети</div>
+    <div class="foot-img">
+        <a href=""><img src="{% static 'img/facebook.png' %}"></a>
+        <a href=""><img src="{% static 'img/vk.png' %}"></a>
+        <a href=""><img src="{% static 'img/insta.png' %}"></a>
+        <a href=""><img src="{% static 'img/telegram.png' %}"></a>
+    </div>
+</footer>
+{% endblock %}

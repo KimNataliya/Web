@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css_additional %}
+<link href=" {% static 'css/register.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block content_one %}
+<div class="login">
+    <div class="box">
+        <form method="POST" action="">
+            {% csrf_token %}
+		    <span class="text-center">Регистрация</span>
+            <div class="form-input">
+            <div class="input-container">
+		        {{ form.username }}
+	        </div>
+	        <div class="input-container">
+		        {{ form.email}}
+	        </div>
+            <div class="input-container">
+		        {{ form.password1 }}
+	        </div>
+            <div class="input-container">
+		        {{ form.password2 }}
+	        </div>
+            </div>
+            <div class="btn-center"><input class="btn" type="submit" name="Register"></div>
+        </form>
+        {{ form.errors }}
+        <div class="register-text">У вас уже есть учетная запись? <a href="{% url 'login' %}">Войти</a></div>
+
+    </div>
+</div>
+    <script>
+    //Query All input fields
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder='Имя';
+    form_fields[2].placeholder='Email';
+    form_fields[3].placeholder='Пароль';
+    form_fields[4].placeholder='Повторите пароль';
+
+    for (var field in form_fields){
+      form_fields[field].className += ' form-control'
+    }
+    </script>
+{% endblock %}

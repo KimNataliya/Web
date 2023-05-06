@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/index.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block header%}
+<header class="header">
+     <div class="container">
+            <div class="header-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li class="left-item"><a href="{% url 'home' %}">Главная</a></li>
+                        <li class="left-item"><a href="{% url 'home' %}">Профиль</a></li>
+                        <li class="right-item"><a href="{% url 'home' %}">Добавить еду</a></li>
+                        <li class="right-item"><a href="{% url 'home' %}">Выбрать еду</a></li>
+                        {% endwith %}
+                    </ul>
+                </nav>
+            </div>
+     </div>
+        <div class="nav-logo">
+            <div class="logo">Счетчик калорий</div>
+            <div class="nav-txt">Бесплатный калькулятор калорий с учетом суточной нормы</div>
+        </div>
+</header>
+{% endblock %}
+
+{% block content_one %}
+<content class="content">
+    <div class="con-start">
+        <div class="start-txt">Приготовьтесь к обновлению себя!</div>
+        <div class="con-txt"> Давайте все настроим, чтобы вы могли добиться своих целей. </div>
+        <div class="con-btn"><a href="{% url 'home' %}">Старт</a></div>
+        <div class="con-entry"><a href="{% url 'login' %}"> Войти </a></div>
+    </div>
+</content>
+{% endblock %}
+{% block footer %}
+<footer class="foot">
+    <div class="foot-txt">Наши социальные сети</div>
+    <div class="foot-img">
+        <a href=""><img src="{% static 'img/facebook.png' %}"></a>
+        <a href=""><img src="{% static 'img/vk.png' %}"></a>
+        <a href=""><img src="{% static 'img/insta.png' %}"></a>
+        <a href=""><img src="{% static 'img/telegram.png' %}"></a>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/select_food.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block header%}
+<header class="header">
+        <div class="container">
+            <div class="header-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li class="left-item"><a href="{% url 'home' %}">Главная</a></li>
+                        <li class="left-item"><a href="{% url 'profile' %}">Профиль</a></li>
+                        <li class="right-item"><a href="{% url 'add_food' %}">Добавить еду</a></li>
+                        <li class="right-item"><a href="{% url 'select_food' %}">Выбрать еду</a></li>
+                        {% endwith %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="nav-logo">
+           <a href="{% url 'index' %}" class="nl">Счетчик калорий</a>
+        </div>
+</header>
+{% endblock %}
+
+{% block content_one %}
+<main>
+        <div class="form-content">
+            <div class="title"><h1>Выбрать еду</h1></div>
+            <form method="POST" action="">
+                <div class="form-label">
+                {% csrf_token %}
+                <p class="txt">Выбрать еду</p>
+                {{ form.food_selected }}
+                <p class="txt">Грамм</p>
+                {{ form.quantity }}
+                <div class="btn-center"><input class="btn" type="submit" value="Выбрать"></div>
+                </div>
+            </form>
+        </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="foot">
+    <div class="foot-txt">Наши социальные сети</div>
+    <div class="foot-img">
+        <a href=""><img src="{% static 'img/facebook.png' %}"></a>
+        <a href=""><img src="{% static 'img/vk.png' %}"></a>
+        <a href=""><img src="{% static 'img/insta.png' %}"></a>
+        <a href=""><img src="{% static 'img/telegram.png' %}"></a>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,287 @@
+/* Header */
+.container {
+    max-width: 1448px;
+    padding: 0 100px;
+    margin: 0 auto;
+    line-height: 31px;
+}
+
+.header {
+    padding-top: 46px;
+    padding-bottom: 80px;
+    background-image: url(/static/img/4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Nav */
+.nav {position: relative;}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+    background-color: rgb(245, 245, 245, 0.5);
+    text-decoration: none;
+    display: block;
+    padding: 0 40px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    transition: .3s linear;
+}
+.nav-list a:hover {background: #DDDDDD;}
+
+.left-item {float: left;}
+.right-item {float: right;}
+
+.nav-logo {text-align: center;}
+.logo {
+    padding-top: 252px;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.nav-txt{
+    padding: 152px 450px;
+    font-weight: 100;
+    font-size: 35px;
+}
+
+/* Content */
+.content{
+    text-align: center;
+    display:block;
+    max-width:972px;
+    margin: 150px auto;
+}
+
+.start-txt{
+    font-size: 50px;
+    padding: 100px 100px;
+}
+
+.con-txt{
+    font-size: 35px;
+    padding: 80px 200px;
+}
+
+.con-btn{
+    display:block;
+    max-width:390px;
+    text-align: center;
+    padding: 20px 0;
+    margin: 50px auto;
+    background-color: #FFDAC6;
+    border-radius: 11px;
+    transition: 0.1s linear;
+    font-size: 40px;
+
+}
+
+.con-btn a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.con-btn:hover {background-color: #EFDBCF;}
+
+.con-entry{font-size: 20px;}
+.con-entry a{color: #000000;}
+
+/*Footer*/
+.foot{
+    text-align: center;
+    background-color: #DCD4CC;
+}
+
+.foot-txt{
+    font-size: 25px;
+    padding-top: 43px;
+    padding-bottom: 25px;
+
+}
+
+.foot-img{
+    padding-bottom: 58px;
+    letter-spacing: 30px;
+}
+
+img{
+    max-width: 70px;
+    max-height: 70px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 1553px) {
+.nav-txt{
+    padding: 152px 400px;
+}
+}
+
+@media (max-width: 1340px) {
+.nav-txt{
+    padding: 152px 350px;
+}
+}
+
+@media (max-width: 1256px) {
+.container {
+    max-width: 1348px;
+    padding: 0 50px;
+}
+.nav-list {text-align: center;}
+.nav-list li {
+  float: none;
+  display: inline-block;
+}
+.nav-list a {
+  line-height: normal;
+  padding: 0 31px;
+  font-size: 20px;
+}
+.nav-txt{
+    padding: 152px 260px;
+    font-size: 30px;
+}
+.logo {
+    padding-top: 190px;
+    font-size: 60px;
+}
+
+.start-txt{
+    font-size: 45px;
+    padding: 70px 60px;
+}
+.con-txt{
+    font-size: 30px;
+    padding: 50px 150px;
+}
+.con-btn{
+    max-width:300px;
+    font-size: 35px;
+    padding: 18px 0;
+}
+.con-entry{font-size: 18px;}
+
+img{
+    max-width: 55px;
+    max-height: 55px;
+}
+
+.foot-txt{
+    font-size: 20px;
+}
+
+.foot-img{
+    padding-bottom: 50px;
+    letter-spacing: 20px;
+}
+}
+
+@media (max-width: 965px) {
+.nav-txt{
+    padding: 152px 150px;
+    font-size: 30px;
+}
+}
+
+@media (max-width: 856px) {
+.container {
+    max-width: 1298px;
+    padding: 0 25px;
+}
+.nav-list a {
+  padding: 0 15px;
+  font-size: 16px;
+}
+.nav-txt{
+    padding: 80px 110px;
+    font-size: 23px;
+}
+.logo {
+    padding-top: 100px;
+    font-size: 50px;
+}
+
+.start-txt{
+    font-size: 40px;
+    padding: 70px 10px;
+}
+.con-txt{
+    font-size: 25px;
+    padding: 50px 100px;
+}
+.con-btn{
+    max-width:220px;
+    font-size: 30px;
+    padding: 12px 0;
+}
+
+img{
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.foot-txt{font-size: 17px;}
+.foot-img{
+    padding-bottom: 38px;
+    letter-spacing: 15px;
+}
+}
+
+@media (max-width: 581px) {
+.container {
+    max-width: 1268px;
+    padding: 0 10px;
+}
+.nav-list li {display: block;}
+.nav-list a {padding: 8px 15px;}
+.nav-txt{
+    padding: 100px 70px;
+    font-size: 20px;
+}
+.logo {
+    padding-top: 80px;
+    font-size: 40px;
+}
+
+.start-txt{
+    font-size: 35px;
+    padding: 0 30px;
+}
+.con-txt{
+    font-size: 25px;
+    padding: 50px 50px;
+}
+.con-btn{
+    max-width:170px;
+    font-size: 25px;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+.con-entry{font-size: 15px;}
+
+img{
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.foot-txt{font-size: 14px;}
+
+.foot-img{
+    padding-bottom: 35px;
+    letter-spacing: 12px;
+}
+}

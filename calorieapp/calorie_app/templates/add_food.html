@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/add_food.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block header%}
+<header class="header">
+        <div class="container">
+            <div class="header-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li class="left-item"><a href="{% url 'home' %}">Главная</a></li>
+                        <li class="left-item"><a href="{% url 'profile' %}">Профиль</a></li>
+                        <li class="right-item"><a href="{% url 'add_food' %}">Добавить еду</a></li>
+                        <li class="right-item"><a href="{% url 'select_food' %}">Выбрать еду</a></li>
+                        {% endwith %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="nav-logo">
+           <a href="{% url 'index' %}" class="nl">Счетчик калорий</a>
+        </div>
+</header>
+{% endblock %}
+
+{% block content_one %}
+<main>
+    <div class="table">
+        <div class="title"><h1>Добавить еду</h1></div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-label">
+                    <p class="txt">Название: </p>
+                    <div class="label">
+                        {{ form.name }}
+                    </div>
+                    <p class="txt">Грамм: </p>
+                    <div class="label">
+                        {{ form.quantity }}
+                    </div>
+                    <p class="txt">Калорий: </p>
+                    <div class="label">
+                        {{ form.calorie }}
+                    </div>
+                    <p class="txt">Белки: </p>
+                    <div class="label">
+                        {{ form.proteins }}
+                    </div>
+                    <p class="txt">Жиры: </p>
+                    <div class="label">
+                        {{ form.fats }}
+                    </div>
+                    <p class="txt">Углеводы: </p>
+                    <div class="label">
+                        {{ form.carbs }}
+                    </div>
+                    <div class="btn-center"><input class="btn" type="submit" value="Добавить"></div>
+                </div>
+
+            </form>
+    </div>
+
+
+    <div class="table-add-food">
+    <div class="name"><h1 class="tabel-title"> Вся добавленная еда </h1></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Грамм</th>
+                    <th>Белки</th>
+                    <th>Жири</th>
+                    <th>Углеводы</th>
+                    <th>Калории</th>
+                    <th>Обновить</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for food in food_items %}
+                <tr>
+                    <td>{{ food.name }}</td>
+                    <td>{{ food.quantity }}</td>
+                    <td>{{ food.proteins }}</td>
+                    <td>{{ food.fats }}</td>
+                    <td>{{ food.carbs }}</td>
+                    <td>{{ food.calorie }}</td>
+                    <td><a href="{% url 'update_food' food.id %}">Обновить</a></td>
+                    <td><a href="{% url 'delete_food' food.id %}">Удалить</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="foot">
+    <div class="foot-txt">Наши социальные сети</div>
+    <div class="foot-img">
+        <a href=""><img src="{% static 'img/facebook.png' %}"></a>
+        <a href=""><img src="{% static 'img/vk.png' %}"></a>
+        <a href=""><img src="{% static 'img/insta.png' %}"></a>
+        <a href=""><img src="{% static 'img/telegram.png' %}"></a>
+    </div>
+</footer>
+{% endblock %}

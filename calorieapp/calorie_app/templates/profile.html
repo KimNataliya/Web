@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css_additional %}
+<link href=" {% static 'css/profile.css' %} "rel="stylesheet">
+{% endblock %}
+
+{% block header%}
+<header class="header">
+        <div class="container">
+            <div class="header-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li class="left-item"><a href="{% url 'home' %}">Главная</a></li>
+                        <li class="left-item"><a href="{% url 'profile' %}">Профиль</a></li>
+                        <li class="right-item"><a href="{% url 'add_food' %}">Добавить еду</a></li>
+                        <li class="right-item"><a href="{% url 'select_food' %}">Выбрать еду</a></li>
+                        {% endwith %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="nav-logo">
+           <a href="{% url 'index' %}" class="nl">Счетчик калорий</a>
+        </div>
+</header>
+{% endblock %}
+
+{% block content_one %}
+<main>
+    <div class="post-wrap">
+
+        <div class="post-item">
+            <div class="item-content">
+                <div class="item-body">
+                    <div class="item-icon">
+                        <img src="{% static 'img/person.png' %}">
+                        <h3>{{ request.user }}</h3>
+                    </div>
+
+                    <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="content-one">
+                        <p>Калорий: {{ form.calorie_goal }}ккал</p>
+                        <p>Белки: {{ form.proteins_goal }}г.</p>
+                        <p>Жиры: {{ form.fats_goal }}г.</p>
+                        <p>Углеводы: {{ form.carbs_goal }}г.</p>
+                        <div class="item-footer"><input class="btn" type="submit" value="Изменить"></div>
+                        <div class="logout"><a href="{% url 'logout' %}">Выйти из аккаута</a></div>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="post-item">
+            <div class="place"></div>
+        </div>
+
+
+
+        <div class="post-item">
+            <div class="item-content-recept">
+                <div class="item-body">
+                    <div class="item-icon-recept">
+                        <p class="txt-recept">Что приготовить?</p>
+                    </div>
+                    <div class="item-footer"><a href="https://receptor.top/recepti" class="link"><span>Перейти</span></a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <h1 class="logo-week"> Еда за неделю </h1>
+    <div class="table-week">
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Калорий</th>
+                    <th>Белков</th>
+                    <th>Жиров</th>
+                    <th>Углеводов</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.date }}</td>
+                    <td>{{ record.total_calorie }}</td>
+                    <td>{{ record.total_proteins }}</td>
+                    <td>{{ record.total_fats }}</td>
+                    <td>{{ record.total_carbs }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</main>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="foot">
+    <div class="foot-txt">Наши социальные сети</div>
+    <div class="foot-img">
+        <a href=""><img src="{% static 'img/facebook.png' %}"></a>
+        <a href=""><img src="{% static 'img/vk.png' %}"></a>
+        <a href=""><img src="{% static 'img/insta.png' %}"></a>
+        <a href=""><img src="{% static 'img/telegram.png' %}"></a>
+    </div>
+</footer>
+{% endblock %}

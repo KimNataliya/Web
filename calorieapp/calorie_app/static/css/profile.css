@@ -1,0 +1,382 @@
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Header */
+.container {
+    max-width: 1600px;
+    padding: 0 100px;
+    margin: 0 auto;
+    line-height: 31px;
+}
+
+.header {
+    padding-top: 46px;
+    padding-bottom: 80px;
+}
+
+/* Nav */
+.nav {position: relative;}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+    background-color: #F5F5F5;
+    text-decoration: none;
+    display: block;
+    padding: 0 40px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    transition: .3s linear;
+}
+.nav-list a:hover {background: #DDDDDD;}
+
+.left-item {float: left;}
+.right-item {float: right;}
+
+.nav-logo{text-align: center;}
+
+.nl{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Content */
+.post-wrap {
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   max-width: 1999px;
+}
+
+.post-item {
+   padding: 15px;
+   cursor: pointer;
+}
+.post-item * {transition: .3s linear;}
+
+.item-content {
+   background: #FCE4D7;
+   padding: 50px;
+   border-radius: 31px;
+}
+
+.post-item:hover .item-icon .item-icon-recept, .post-item:hover .item-body h3, .post-item:hover .item-body p {
+   transform: translateY(-8px);
+}
+.item-icon{
+    display: inline-block;
+}
+
+.item-icon img{
+    max-width: 153px;
+    max-height: 168px;
+}
+
+.content-one{
+    text-align: center;
+    font-weight: bold;
+}
+
+.logout{
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.item-body {
+    color: #000000;
+    font-size: 30px;
+}
+
+.item-body h3 {
+    float: right;
+    font-weight: bold;
+    margin-left: 56px;
+    transition-delay: .05s;
+}
+.item-body p {transition-delay: .1s;}
+
+
+.item-content-recept{
+    padding: 251px 96px;
+    border-radius: 31px;
+    background-image: url(/static/img/recept.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.item-icon-recept{
+    display: inline-block;
+}
+
+.item-icon-recept p{
+    padding: 10px;
+    background-color: rgb(245, 245, 245, 0.5);
+}
+
+.txt-recept{
+    float: center;
+    font-weight: bold;
+}
+
+
+.item-footer {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    font-weight: bold;
+    text-align: center;
+	background-color:#ffffff;
+	outline: none;
+    border: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	margin: 20px 0;
+	border-radius: 9px;
+	cursor: pointer;
+	position: relative;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.link {
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding-right: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.link span {
+    display: inline-block;
+    position: relative;
+    transform: translateX(-200%);
+    transition: .6s cubic-bezier(.6, .01, 0, 1);
+}
+.post-item:hover .link span {transform: translateX(0%);}
+.post-item:hover .link:before {transform-origin: bottom center;}
+
+.place{
+    padding:40px;
+}
+
+.table-week{
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 90%;
+    margin: 72px 100px;
+}
+table tr {
+    background: #E1D3CB;
+    border-bottom: 1px solid
+}
+table th, table td {
+    padding: 10px 20px;
+}
+
+.logo-week{
+    margin-top: 105px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Footer*/
+.foot{
+    text-align: center;
+    background-color: #DCD4CC;
+}
+
+.foot-txt{
+    font-size: 25px;
+    padding-top: 43px;
+    padding-bottom: 25px;
+}
+
+.foot-img{
+    padding-bottom: 58px;
+    letter-spacing: 30px;
+}
+
+.foot-img img{
+    max-width: 70px;
+    max-height: 70px;
+}
+
+
+
+@media (max-width: 1553px) {
+.nav-txt{
+    padding: 152px 400px;
+}
+}
+
+@media (max-width: 1340px) {
+.nav-txt{
+    padding: 152px 350px;
+}
+}
+
+@media (max-width: 1256px) {
+.container {
+    max-width: 1348px;
+    padding: 0 50px;
+}
+.nav-list {text-align: center;}
+.nav-list li {
+  float: none;
+  display: inline-block;
+}
+.nav-list a {
+  line-height: normal;
+  padding: 0 31px;
+  font-size: 20px;
+}
+.nav-txt{
+    padding: 152px 260px;
+    font-size: 30px;
+}
+.logo {
+    padding-top: 190px;
+    font-size: 60px;
+}
+
+.start-txt{
+    font-size: 45px;
+    padding: 70px 60px;
+}
+.con-txt{
+    font-size: 30px;
+    padding: 50px 150px;
+}
+.con-btn{
+    max-width:300px;
+    font-size: 35px;
+    padding: 18px 0;
+}
+.con-entry{font-size: 18px;}
+
+.foot-img img{
+    max-width: 55px;
+    max-height: 55px;
+}
+
+.foot-txt{font-size: 20px;}
+.foot-img{
+    padding-bottom: 50px;
+    letter-spacing: 20px;
+}
+}
+
+@media (max-width: 965px) {
+.nav-txt{
+    padding: 152px 150px;
+    font-size: 30px;
+}
+}
+
+@media (max-width: 856px) {
+.container {
+    max-width: 1298px;
+    padding: 0 25px;
+}
+.nav-list a {
+  padding: 0 15px;
+  font-size: 16px;
+}
+.nav-txt{
+    padding: 80px 110px;
+    font-size: 23px;
+}
+.logo {
+    padding-top: 100px;
+    font-size: 50px;
+}
+
+.start-txt{
+    font-size: 40px;
+    padding: 70px 10px;
+}
+.con-txt{
+    font-size: 25px;
+    padding: 50px 100px;
+}
+.con-btn{
+    max-width:220px;
+    font-size: 30px;
+    padding: 12px 0;
+}
+
+.foot-img img{
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.foot-txt{font-size: 17px;}
+.foot-img{
+    padding-bottom: 38px;
+    letter-spacing: 15px;
+}
+}
+
+@media (max-width: 581px) {
+.container {
+    max-width: 1268px;
+    padding: 0 10px;
+}
+.nav-list li {display: block;}
+.nav-list a {padding: 8px 15px;}
+.nav-txt{
+    padding: 100px 70px;
+    font-size: 20px;
+}
+.logo {
+    padding-top: 80px;
+    font-size: 40px;
+}
+
+.start-txt{
+    font-size: 35px;
+    padding: 0 30px;
+}
+.con-txt{
+    font-size: 25px;
+    padding: 50px 50px;
+}
+.con-btn{
+    max-width:170px;
+    font-size: 25px;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+.con-entry{font-size: 15px;}
+
+.foot-img img{
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.foot-txt{font-size: 14px;}
+
+.foot-img{
+    padding-bottom: 35px;
+    letter-spacing: 12px;
+}
+}

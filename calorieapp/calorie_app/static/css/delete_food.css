@@ -1,0 +1,45 @@
+.container{
+    background-image: url(/static/img/delete.jpg);
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	color:#fff;
+}
+
+.block-text{
+    text-align: center;
+    font-size: 30px;
+    position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:70px 100px;
+}
+
+a{
+    color: #ffffff;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.btn-style{
+    text-align: center;
+	background-color:#2C2420;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+	font-family: 'Playfair Display SC', serif;
+}
